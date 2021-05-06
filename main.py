@@ -1,5 +1,5 @@
 from openpyxl import load_workbook
-import xlsxwriter
+from pandas import ExcelWriter
 import numpy as np
 import pandas as pd
 
@@ -19,9 +19,11 @@ class matriz:
     matriz1=pd.DataFrame({'Columna1':b[0],'Columna2':b[1],'Columna3':b[2]})
     print(matriz1)
 
-    nuevo=pd.ExcelWriter('Copia1.xlsx')
+    nuevo=ExcelWriter('Copia1.xlsx')
 
     matriz1.to_excel(nuevo,'Hoja 1 copia',index=False)
+
+    nuevo.save()
 
 
     
